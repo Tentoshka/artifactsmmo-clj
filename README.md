@@ -2,7 +2,7 @@
 
 A Clojure library created for playing artifactsmmo
 
-## Usage
+## Base actions
 
 Work in progress...
 
@@ -27,7 +27,6 @@ Result:
  :next_wipe         "N/A"}
 ```
 
----
 
 ### Character
 
@@ -100,6 +99,54 @@ Example:
 
 ``` clojure
 {:error {:code 490 :message "Character already at destination."}}
+```
+
+## Extra scripts
+
+**Gathering loop**
+
+Allows you to perform a gathering action in a loop. This can be useful for automatic resource extraction
+
+``` clojure
+(require '[artifacts.scripts :as s])
+
+(s/gather-loop! {:token token
+                 :name  char-name})
+```
+
+The script will automatically extract resources and report changes in experience, level, as well as items in the inventory
+
+``` clojure
+{:mining_max_xp      450,
+ :mining_xp          112,
+ :woodcutting_level  2,
+ :fishing_xp         0,
+ :woodcutting_max_xp 250,
+ :intentory
+ [{:slot 1, :code "raw_chicken", :quantity 1}
+  {:slot 2, :code "ash_wood", :quantity 7}
+  {:slot 3, :code "copper_ore", :quantity 30}
+  {:slot 4, :code "", :quantity 0}
+  {:slot 5, :code "wooden_staff", :quantity 1}
+  {:slot 6, :code "", :quantity 0}
+  {:slot 7, :code "", :quantity 0}
+  {:slot 8, :code "", :quantity 0}
+  {:slot 9, :code "", :quantity 0}
+  {:slot 10, :code "", :quantity 0}
+  {:slot 11, :code "", :quantity 0}
+  {:slot 12, :code "", :quantity 0}
+  {:slot 13, :code "", :quantity 0}
+  {:slot 14, :code "", :quantity 0}
+  {:slot 15, :code "", :quantity 0}
+  {:slot 16, :code "", :quantity 0}
+  {:slot 17, :code "", :quantity 0}
+  {:slot 18, :code "", :quantity 0}
+  {:slot 19, :code "", :quantity 0}
+  {:slot 20, :code "", :quantity 0}],
+ :fishing_level      1,
+ :woodcutting_xp     96,
+ :fishing_max_xp     150,
+ :mining_level       4}
 ```
 
 ## License
