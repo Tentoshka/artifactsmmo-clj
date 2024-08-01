@@ -376,6 +376,160 @@ Result:
   :jewelrycrafting_level     1}}
 ```
 
+**Action Gathering**
+``` clojure
+(require '[artifacts.character :as char])
+
+(char/action-gathering {:token "123456"
+                    :name  "char-name"})
+```
+
+Result:
+
+``` clojure
+{:cooldown
+ {:total_seconds     25,
+  :remaining_seconds 25,
+  :totalSeconds      25,
+  :remainingSeconds  25,
+  :expiration        "2024-08-01T16:02:35.955801Z",
+  :reason            "gathering"},
+ :details {:xp 26, :items [{:code "ash_wood", :quantity 1}]},
+ :character
+ {:y                         1,
+  :artifact2_slot            "",
+  :consumable2_slot_quantity 0,
+  :critical_strike           0,
+  :task_type                 "",
+  :inventory_slot1           "raw_chicken",
+  :mining_max_xp             150,
+  :inventory_slot20_quantity 0,
+  :task_progress             0,
+  :gearcrafting_max_xp       150,
+  :dmg_air                   0,
+  :inventory_slot12          "",
+  :res_air                   0,
+  :mining_xp                 0,
+  :inventory_slot5           "",
+  :inventory_slot8           "",
+  :inventory_slot3_quantity  0,
+  :inventory_slot17_quantity 0,
+  :inventory_slot2           "ash_wood",
+  :inventory_slot13_quantity 0,
+  :inventory_slot7           "",
+  :inventory_slot4           "",
+  :consumable2_slot          "",
+  :inventory_slot13          "",
+  :inventory_slot1_quantity  1,
+  :jewelrycrafting_max_xp    150,
+  :task                      "",
+  :speed                     100,
+  :inventory_max_items       102,
+  :inventory_slot14_quantity 0,
+  :cooldown_expiration       "2024-08-01T16:02:35.955Z",
+  :leg_armor_slot            "",
+  :inventory_slot9           "",
+  :name                      "Tentoshka",
+  :inventory_slot3           "",
+  :inventory_slot8_quantity  0,
+  :woodcutting_level         1,
+  :inventory_slot4_quantity  0,
+  :inventory_slot10          "",
+  :cooking_level             1,
+  :inventory_slot15          "",
+  :inventory_slot11          "",
+  :inventory_slot14          "",
+  :fishing_xp                0,
+  :cooldown                  25,
+  :stamina                   0,
+  :artifact1_slot            "",
+  :inventory_slot16_quantity 0,
+  :inventory_slot5_quantity  0,
+  :weapon_slot               "wooden_stick",
+  :inventory_slot20          "",
+  :helmet_slot               "",
+  :shield_slot               "",
+  :inventory
+  [{:slot 1, :code "raw_chicken", :quantity 1}
+   {:slot 2, :code "ash_wood", :quantity 1}
+   {:slot 3, :code "", :quantity 0}
+   {:slot 4, :code "", :quantity 0}
+   {:slot 5, :code "", :quantity 0}
+   {:slot 6, :code "", :quantity 0}
+   {:slot 7, :code "", :quantity 0}
+   {:slot 8, :code "", :quantity 0}
+   {:slot 9, :code "", :quantity 0}
+   {:slot 10, :code "", :quantity 0}
+   {:slot 11, :code "", :quantity 0}
+   {:slot 12, :code "", :quantity 0}
+   {:slot 13, :code "", :quantity 0}
+   {:slot 14, :code "", :quantity 0}
+   {:slot 15, :code "", :quantity 0}
+   {:slot 16, :code "", :quantity 0}
+   {:slot 17, :code "", :quantity 0}
+   {:slot 18, :code "", :quantity 0}
+   {:slot 19, :code "", :quantity 0}
+   {:slot 20, :code "", :quantity 0}],
+  :ring1_slot                "",
+  :consumable1_slot          "",
+  :haste                     0,
+  :artifact3_slot            "",
+  :inventory_slot6_quantity  0,
+  :level                     2,
+  :gold                      3,
+  :attack_fire               0,
+  :res_fire                  0,
+  :consumable1_slot_quantity 0,
+  :jewelrycrafting_xp        0,
+  :inventory_slot10_quantity 0,
+  :inventory_slot15_quantity 0,
+  :woodcutting_max_xp        150,
+  :dmg_fire                  0,
+  :inventory_slot2_quantity  1,
+  :max_xp                    250,
+  :ring2_slot                "",
+  :inventory_slot9_quantity  0,
+  :amulet_slot               "",
+  :gearcrafting_level        1,
+  :weaponcrafting_max_xp     150,
+  :attack_earth              4,
+  :cooking_xp                0,
+  :weaponcrafting_level      1,
+  :res_earth                 0,
+  :attack_water              0,
+  :inventory_slot6           "",
+  :fishing_level             1,
+  :inventory_slot17          "",
+  :inventory_slot19_quantity 0,
+  :weaponcrafting_xp         0,
+  :dmg_water                 0,
+  :gearcrafting_xp           0,
+  :inventory_slot18          "",
+  :inventory_slot19          "",
+  :inventory_slot11_quantity 0,
+  :woodcutting_xp            26,
+  :body_armor_slot           "",
+  :fishing_max_xp            150,
+  :inventory_slot18_quantity 0,
+  :total_xp                  172,
+  :x                         6,
+  :res_water                 0,
+  :inventory_slot12_quantity 0,
+  :hp                        125,
+  :xp                        22,
+  :inventory_slot16          "",
+  :task_total                0,
+  :boots_slot                "",
+  :cooking_max_xp            150,
+  :inventory_slot7_quantity  0,
+  :skin                      "men2",
+  :dmg_earth                 0,
+  :attack_air                0,
+  :mining_level              1,
+  :jewelrycrafting_level     1}}
+```
+
+
 **Error handling**
 If was error you can get error message by game
 Example%

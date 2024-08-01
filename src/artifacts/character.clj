@@ -16,6 +16,11 @@
                  :method   c/post
                  :url-part (str (url-path name) "fight")}))
 
+(defn action-gathering [{:keys [token name]}]
+  (base-request {:token    token
+                 :method   c/post
+                 :url-part (str (url-path name) "gathering")}))
+
 (comment
   (assoc (base-request "123")
               :body         (json/generate-string
