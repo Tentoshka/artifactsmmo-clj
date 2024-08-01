@@ -7,7 +7,9 @@
   (-> base-url
       (c/get {:accept :json
               :content-type :json})
-      :body))
+      :body
+      (json/parse-string true)
+      :data))
 
 (comment
 

@@ -13,6 +13,20 @@ Work in progress...
 
 (c/get-status)
 ```
+
+Result:
+
+``` clojure
+{:status            "online",
+ :version           "1.3",
+ :characters_online 528,
+ :announcements
+ [{:message    "Welcome to Artifacts Alpha 1. The server is up.",
+   :created_at "2024-08-01T15:24:50.410Z"}],
+ :last_wipe         "2023-07-11",
+ :next_wipe         "N/A"}
+```
+
 ---
 
 **Action Move**
