@@ -2,14 +2,19 @@
   (:require [clj-http.client :as c]
             [artifacts.data :refer [base-request]]))
 
+(defn- url-path [name] (str "my/" name "/action/"))
+
 (defn action-move [{:keys [token name x y]}]
   (base-request {:token    token
                  :method   c/post
-                 :url-part (str "my/" name "/action/move")
-                 :body     (json/generate-string
-                            {:x x
-                             :y y})}))
+                 :url-part (str (url-path name) "move")
+                 :body     {:x x
+                            :y y}}))
 
+(defn action-fight [{:keys [token name]}]
+  (base-request {:token    token
+                 :method   c/post
+                 :url-part (str (url-path name) "fight")}))
 
 (comment
   (assoc (base-request "123")
