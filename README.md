@@ -1,4 +1,4 @@
-# artifactsmmo-clj
+# ArtifactsMMO-clj 
 
 A Clojure library created for playing artifactsmmo
 
@@ -46,10 +46,10 @@ Result:
 ``` clojure
 (require '[artifacts.character :as char])
 
-(action-equip {:token token
-               :name  char-name
-               :slot  slot
-               :code  item-code})
+(char/action-equip {:token token
+                    :name  char-name
+                    :slot  slot
+                    :code  item-code})
 ```
 
 **Action Unequip**
@@ -57,9 +57,9 @@ Result:
 ``` clojure
 (require '[artifacts.character :as char])
 
-(action-unequip {:token token
-                 :name  char-name
-                 :slot  slot})
+(char/action-unequip {:token token
+                      :name  char-name
+                      :slot  slot})
 ```
 
 **Action Fight**
@@ -168,12 +168,16 @@ Allows you to perform a gathering action in a loop. This can be useful for autom
 The script will automatically extract resources and report changes in experience, level, as well as items in the inventory
 
 ``` clojure
-{:mining_max_xp      450,
+{:mining_level       4,
  :mining_xp          112,
+ :mining_max_xp      450,
  :woodcutting_level  2,
- :fishing_xp         0,
+ :woodcutting_xp     96,
  :woodcutting_max_xp 250,
- :intentory
+ :fishing_level      1,
+ :fishing_xp         0,
+ :fishing_max_xp     150,
+:intentory
  [{:slot 1, :code "raw_chicken", :quantity 1}
   {:slot 2, :code "ash_wood", :quantity 7}
   {:slot 3, :code "copper_ore", :quantity 30}
@@ -193,11 +197,22 @@ The script will automatically extract resources and report changes in experience
   {:slot 17, :code "", :quantity 0}
   {:slot 18, :code "", :quantity 0}
   {:slot 19, :code "", :quantity 0}
-  {:slot 20, :code "", :quantity 0}],
- :fishing_level      1,
- :woodcutting_xp     96,
- :fishing_max_xp     150,
- :mining_level       4}
+  {:slot 20, :code "", :quantity 0}]
+ }
+```
+
+**Maximize crafting**
+
+Allows you to craft the maximum amount of an item from available resources
+
+For example, you have 20 copper ore in your inventory, the craft-max function will allow you to craft the maximum amount of copper (3) from them without burdening you with calculations
+
+``` clojure
+(require '[artifacts.scripts :as s])
+
+(s/craft-max {:token token
+              :name  char-name
+              :code  item-code})
 ```
 
 ## License

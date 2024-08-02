@@ -1,5 +1,6 @@
 (ns artifacts.scripts
-  (:require [artifacts.character :refer :all]))
+  (:require [artifacts.character :refer :all]
+            [artifacts.items :refer :all]))
 
 (def continue? (atom true))
 
@@ -41,3 +42,29 @@
             (do
               (reset! continue? false)
               (clojure.pprint/pprint err)))))))))
+
+(defn craft-max [{:keys [token name code]}]
+  (let [item (get-item {:code code})
+        craft-items (-> item :item :craft :items)
+        inventory (->> {:token token}
+                       get-my-characters
+                       (filter #(= (:name %) name))
+                       first
+                       :inventory)
+        merged-items (->> (map (fn [a]
+                                 (map (fn [b] (when (= (:code a) (:code b)) {:code (:code a)
+                                                                            :need (:quantity a)
+                                                                            :have (:quantity b)}))
+                                      inventory))
+                                 craft-items)
+                            (map #(filter some? %))
+                            flatten)
+        count-items (first (min (map #(quot (:have %) (:need %)) merged-items)))]
+        (action-crafting {:token token :code code :name name :quantity count-items})))
+
+
+(comment
+
+
+
+  )

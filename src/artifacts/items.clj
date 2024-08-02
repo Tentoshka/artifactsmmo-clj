@@ -20,9 +20,6 @@
 
 (comment
 
-  (get-all-items {:craft-material "copper"})
-
-  (get-item {:code "wodden_stuff"})
 
 
   )
