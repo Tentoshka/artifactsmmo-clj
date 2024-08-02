@@ -120,7 +120,29 @@ Result:
 (char/get-my-characters {:token token})
 ```
 
-**Error handling**
+### Items
+
+**Get All Items**
+
+``` clojure
+(require '[artifacts.items :as items])
+
+(items/get-all-items {:craft-material craft-material
+                      :craft-skill    craft-skill
+                      :max-lvl        max-lvl
+                      :min-lvl        min-lvl
+                      :type           type})
+```
+
+**Get Item**
+
+``` clojure
+(require '[artifacts.items :as items])
+
+(items/get-item {:code code})
+```
+
+### Error handling
 
 If was error you can get error message by game
 
