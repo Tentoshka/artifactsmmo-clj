@@ -46,10 +46,10 @@ Result:
 ``` clojure
 (require '[artifacts.character :as char])
 
-(action-unequip {:token token
-                 :name  char-name
-                 :slot  slot
-                 :code  item-code})
+(action-equip {:token token
+               :name  char-name
+               :slot  slot
+               :code  item-code})
 ```
 
 **Action Unequip**
@@ -85,10 +85,39 @@ Result:
 ``` clojure
 (require '[artifacts.character :as char])
 
-(action-crafting {:token    token
-                  :name     char-name
-                  :code     item-code
-                  :quantity 1})
+(char/action-crafting {:token    token
+                       :name     char-name
+                       :code     item-code
+                       :quantity 1})
+```
+
+**Get Character Logs**
+
+``` clojure
+(require '[artifacts.character :as char])
+
+(char/get-character-log {:token token 
+                         :name  char-name
+                         :page  1
+                         :size  50})
+```
+
+**Get All Characters Logs**
+
+``` clojure
+(require '[artifacts.character :as char])
+
+(char/get-all-characters-logs {:token token
+                               :page  1
+                               :size  50})
+```
+
+**Get My Characters**
+
+``` clojure
+(require '[artifacts.character :as char])
+
+(char/get-my-characters {:token token})
 ```
 
 **Error handling**
